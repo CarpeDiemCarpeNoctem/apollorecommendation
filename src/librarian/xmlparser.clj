@@ -11,3 +11,7 @@
 (defn parse-xml
   [s]
   (clojure.xml/parse (java.io.ByteArrayInputStream. (.getBytes s))))
+
+(defn get-friends
+  [parsedxml]
+  (:content (-> parsedxml :content second)))
