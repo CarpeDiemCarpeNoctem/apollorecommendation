@@ -23,4 +23,7 @@
     (pearson {:123 3 :234 5 :345 4} {:123 4 :345 5 :456 2 :567 3.0, :678 5.0}) => 1.0)
   
   (fact "Returns Pearson distance score"
-    (pearson {} {:123 4 :345 5 :456 2 :567 3.0, :678 5.0}) => 0))
+    (pearson {} {:123 4 :345 5 :456 2 :567 3.0, :678 5.0}) => 0)
+  
+  (fact "Returns Pearson distance score"
+    (pearson {} {}) => 0))
