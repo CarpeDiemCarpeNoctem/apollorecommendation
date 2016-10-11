@@ -1,6 +1,8 @@
 (ns librarian.midje-test
   (:use midje.sweet)
-  (:require [librarian.algorithms :refer :all]))
+  (:require [librarian.test-data :refer :all]
+            [librarian.algorithms :refer :all]
+            [librarian.xmlparser :refer :all]))
 
 (facts "ns:algorithms 'euclid'"
   (fact "Returns Euclidean distance score"
@@ -27,3 +29,7 @@
   
   (fact "Returns Pearson distance score"
     (pearson {} {}) => 0))
+
+(facts "ns:ratings 'parse-xml'"
+  (fact "Returns a map from supplied XML"
+    (parse-xml "<hello>world</hello>") => {:tag :hello, :attrs nil, :content ["world"]}))
