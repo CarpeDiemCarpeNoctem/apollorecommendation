@@ -15,3 +15,8 @@
 (defn get-friends
   [parsedxml]
   (:content (-> parsedxml :content second)))
+
+(defn list-friends
+  [friends-vec]
+  (for [user friends-vec]
+    (first (:content (first (:content user))))))
