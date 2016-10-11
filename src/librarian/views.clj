@@ -5,6 +5,7 @@
   []
   [:head
    [:title (str "My Librarian")]
+   (hic-p/include-css "/css/style.css")
    ])
 
 (defn home-page
