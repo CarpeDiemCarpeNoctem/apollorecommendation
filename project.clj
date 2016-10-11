@@ -7,7 +7,8 @@
                  [clj-http "1.1.2"]
                  [compojure "1.3.1"]
                  [ring/ring-defaults "0.1.2"]]
-  :plugins [[lein-ring "0.9.7"]]
+  :plugins [[lein-ring "0.9.7"]
+            [lein-midje "3.2-RC4"]]
   :ring {:handler librarian.handler/app}
   :profiles
   {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
