@@ -1,0 +1,18 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+h1 {
+    color: white;
+    font-family: Arial;
+    text-align: center;
+}
+
+#intro {
+    font-size: 1em;
+    text-align: center;
+}
