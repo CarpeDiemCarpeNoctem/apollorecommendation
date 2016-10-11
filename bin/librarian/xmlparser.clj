@@ -7,3 +7,7 @@
 (defn get-friends-xml
   [id]
   (ocon/get-friends id))
+
+(defn parse-xml
+  [s]
+  (clojure.xml/parse (java.io.ByteArrayInputStream. (.getBytes s))))
