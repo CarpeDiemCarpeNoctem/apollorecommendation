@@ -44,3 +44,5 @@
       {:tag :reviews_count,
        :attrs nil,
        :content ["50"]}]}]}]})
+
+(def sample-get-friends [{:attrs nil, :content [{:attrs nil, :content ["11111111"], :tag :id} {:attrs nil, :content ["4"], :tag :friends_count} {:attrs nil, :content ["78"], :tag :reviews_count}], :tag :user} {:attrs nil, :content [{:attrs nil, :content ["22222222"], :tag :id} {:attrs nil, :content ["4"], :tag :friends_count} {:attrs nil, :content ["50"], :tag :reviews_count}], :tag :user}])
