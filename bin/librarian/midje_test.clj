@@ -33,3 +33,7 @@
 (facts "ns:ratings 'parse-xml'"
   (fact "Returns a map from supplied XML"
     (parse-xml "<hello>world</hello>") => {:tag :hello, :attrs nil, :content ["world"]}))
+
+(facts "ns:ratings 'get-friends'"
+  (fact "Returns only the friends portion of parsed XML file"
+    (get-friends sample-parsed-xml) => [{:attrs nil, :content [{:attrs nil, :content ["11111111"], :tag :id} {:attrs nil, :content ["4"], :tag :friends_count} {:attrs nil, :content ["78"], :tag :reviews_count}], :tag :user} {:attrs nil, :content [{:attrs nil, :content ["22222222"], :tag :id} {:attrs nil, :content ["4"], :tag :friends_count} {:attrs nil, :content ["50"], :tag :reviews_count}], :tag :user}]))
