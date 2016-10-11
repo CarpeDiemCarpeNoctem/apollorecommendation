@@ -15,3 +15,6 @@
   (fact "Returns Euclidean distance score"
     (euclid {} {}) => 0))
 
+(facts "ns:formulas 'pearson'"
+  (fact "Returns Pearson distance score"
+    (pearson {:123 3 :234 5 :345 4} {:123 3 :234 5 :345 4}) => 1.0))
