@@ -1,10 +1,15 @@
 (ns librarian.handler
-  (:require [compojure.core :refer :all]
+  (:require [librarian.views :as views]
+            [compojure.core :refer :all]
             [compojure.route :as route]
             [ring.middleware.defaults :refer [wrap-defaults site-defaults]]))
 
 (defroutes app-routes
-  (GET "/" [] "Hello World")
+  
+  (GET "/"
+       []
+       (views/home-page))
+  
   (route/not-found "Not Found"))
 
 (def app
