@@ -12,4 +12,5 @@
   :profiles
   {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
                         [ring-mock "0.1.5"]
-                        [hiccup "1.0.2"]]}})
+                        [hiccup "1.0.2"]
+                        [midje "1.7.0"]]}})
