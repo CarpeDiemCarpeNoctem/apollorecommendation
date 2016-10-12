@@ -42,6 +42,10 @@
              [(keyword book-id) book-rating]))
          reviews)))
 
+(defn make-keyword-list
+  [collection]
+  (map keyword collection))
+
 (defn users-book-ratings
   [list-of-users]
   (for [user list-of-users] (book-ratings (user-book-reviews user))))
