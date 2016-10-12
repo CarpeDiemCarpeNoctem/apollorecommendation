@@ -58,3 +58,7 @@
  
  (fact "Returns empty list if supplied collection is empty"
     (recommend-books {} :11111111 euclid) => {}))
+
+(facts "ns:recommendations 'sort-by-value'"
+  (fact "Sorts supplied collection by value in ascending order"
+    (sort-by-value {:456 2.0, :567 3.0, :678 5.0}) => {:456 2.0, :567 3.0, :678 5.0}))
