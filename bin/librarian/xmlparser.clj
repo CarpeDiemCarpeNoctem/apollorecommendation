@@ -24,3 +24,11 @@
 (defn user-book-reviews
   [userid]
   (format "http://www.goodreads.com/review/list?v=2&key=%s&id=%s&sort=votes&per_page=1000&order=d" "your-api-key" userid))
+
+(defn extract-tag
+  [tag coll]
+  (let [n (first coll)]
+    (if (= tag (:tag n))
+        (:content n)
+        (extract-tag tag (rest coll)))))
+
