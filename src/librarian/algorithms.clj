@@ -59,3 +59,11 @@
                   rated-users (reduce #(if (contains? (val %2) book) (conj %1 (key %2)) %1) [] weighted-pref)
                   similarities (reduce + (map #(sim-users %) rated-users))]
               (assoc collection book similarities))) {} book-wprefs))
+
+(defn recommend-books
+  [ratings user formula]
+  (let [similar-friends (into {} (similarity-scores ratings user formula))
+        weighted-rs (weighted-ratings ratings similar-friends user)
+        sum-wratings (sum-weighted-ratings weighted-rs)
+        sum-sim-scores (sum-similarity-scores weighted-rs sum-wratings similar-friends)]
+    (zipmap (keys sum-wratings) (map #(/ (second %) (sum-sim-scores (first %))) sum-wratings))))
