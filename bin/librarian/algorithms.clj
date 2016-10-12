@@ -47,3 +47,7 @@
            not-read (filter #(not (contains? (ratings user) (key %))) (ratings friend-id))
            weighted-pref (zipmap (keys not-read) (map #(* % sim) (vals not-read)))]
        (assoc collection friend-id weighted-pref))) {} scores))
+
+(defn sum-weighted-ratings
+  [weighted-ratings]
+  (reduce (fn [collection wratings] (merge-with #(+ %1 %2) collection wratings)) {} (vals weighted-ratings)))
