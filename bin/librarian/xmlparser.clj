@@ -41,3 +41,7 @@
                  book-rating (int (. Integer parseInt (first (extract-tag :rating book-review))))]
              [(keyword book-id) book-rating]))
          reviews)))
+
+(defn users-book-ratings
+  [list-of-users]
+  (for [user list-of-users] (book-ratings (user-book-reviews user))))
