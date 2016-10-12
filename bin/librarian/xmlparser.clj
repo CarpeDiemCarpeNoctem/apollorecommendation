@@ -20,3 +20,7 @@
   [friends-vec]
   (for [user friends-vec]
     (first (:content (first (:content user))))))
+
+(defn user-book-reviews
+  [userid]
+  (format "http://www.goodreads.com/review/list?v=2&key=%s&id=%s&sort=votes&per_page=1000&order=d" "your-api-key" userid))
