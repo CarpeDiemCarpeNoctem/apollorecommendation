@@ -45,3 +45,8 @@
 (defn users-book-ratings
   [list-of-users]
   (for [user list-of-users] (book-ratings (user-book-reviews user))))
+
+(defn create-ratings
+  [list-of-users]
+  (let [keyword-ids (map keyword list-of-users)]
+    (zipmap keyword-ids (users-book-ratings list-of-users))))
