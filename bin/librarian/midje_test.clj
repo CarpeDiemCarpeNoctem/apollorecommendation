@@ -54,4 +54,7 @@
 
 (facts "ns:recommendations 'recommend-books'"
  (fact "Returns map of key-value pairs of book ids and their ratings"
-   (recommend-books {:11111111 {:123 3 :234 5 :345 4} :22222222 {:123 4 :345 5 :456 2 :567 3.0, :678 5.0}} :11111111 euclid) => {:456 2.0, :567 3.0, :678 5.0}))
+   (recommend-books {:11111111 {:123 3 :234 5 :345 4} :22222222 {:123 4 :345 5 :456 2 :567 3.0, :678 5.0}} :11111111 euclid) => {:456 2.0, :567 3.0, :678 5.0})
+ 
+ (fact "Returns empty list if supplied collection is empty"
+    (recommend-books {} :11111111 euclid) => {}))
