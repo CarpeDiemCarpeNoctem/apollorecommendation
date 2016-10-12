@@ -33,3 +33,7 @@
   [ratings user formula]
   (let [list-without-user (dissoc ratings user)]
       (reduce #(assoc %1 (key %2) (formula (ratings user) (val %2))) {} list-without-user)))
+
+(defn similarity-scores
+  [ratings user formula]
+  (filter #(not (<= (second %) 0)) (get-similarities ratings user formula)))
