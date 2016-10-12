@@ -64,4 +64,7 @@
     (sort-by-value {:456 2.0, :567 3.0, :678 5.0}) => {:456 2.0, :567 3.0, :678 5.0})
   
   (fact "Sorts supplied collection by value is ascending order"
-    (sort-by-value {:678 5.0, :567 3.0, :456 2.0}) => {:456 2.0, :567 3.0, :678 5.0}))
+    (sort-by-value {:678 5.0, :567 3.0, :456 2.0}) => {:456 2.0, :567 3.0, :678 5.0})
+  
+  (fact "Sorts supplied collection by value is ascending order"
+    (sort-by-value {:678 5.0, :456 2.0, :567 3.0}) => {:456 2.0, :567 3.0, :678 5.0}))
