@@ -67,3 +67,7 @@
         sum-wratings (sum-weighted-ratings weighted-rs)
         sum-sim-scores (sum-similarity-scores weighted-rs sum-wratings similar-friends)]
     (zipmap (keys sum-wratings) (map #(/ (second %) (sum-sim-scores (first %))) sum-wratings))))
+
+(defn sort-by-value
+  [coll]
+  (into (sorted-map-by (fn [key1 key2] (compare [(get coll key2) key2] [(get coll key1) key1]))) coll))
