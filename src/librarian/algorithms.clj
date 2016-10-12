@@ -37,3 +37,13 @@
 (defn similarity-scores
   [ratings user formula]
   (filter #(not (<= (second %) 0)) (get-similarities ratings user formula)))
+
+(defn weighted-ratings
+  [ratings scores user]
+  (reduce 
+   (fn [collection simil-scores]
+     (let [friend-id (key simil-scores)
+           sim (val simil-scores)
+           not-read (filter #(not (contains? (ratings user) (key %))) (ratings friend-id))
+           weighted-pref (zipmap (keys not-read) (map #(* % sim) (vals not-read)))]
+       (assoc collection friend-id weighted-pref))) {} scores))
