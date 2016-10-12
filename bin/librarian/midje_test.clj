@@ -44,4 +44,7 @@
 
 (facts "ns:ratings 'make-keyword-list'"
  (fact "Returns list of keywords from the collection of elements supplied"
-   (make-keyword-list '("11111111" "22222222" "33333333" "44444444" "55555555")) => '(:11111111 :22222222 :33333333 :44444444 :55555555)))
+   (make-keyword-list '("11111111" "22222222" "33333333" "44444444" "55555555")) => '(:11111111 :22222222 :33333333 :44444444 :55555555))
+ 
+ (fact "Returns empty list if supplied collection is empty"
+    (make-keyword-list '()) => '()))
