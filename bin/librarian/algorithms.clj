@@ -51,3 +51,11 @@
 (defn sum-weighted-ratings
   [weighted-ratings]
   (reduce (fn [collection wratings] (merge-with #(+ %1 %2) collection wratings)) {} (vals weighted-ratings)))
+
+(defn sum-similarity-scores
+  [weighted-pref book-wprefs sim-users]
+  (reduce (fn [collection bprefs]
+            (let [book (first bprefs)
+                  rated-users (reduce #(if (contains? (val %2) book) (conj %1 (key %2)) %1) [] weighted-pref)
+                  similarities (reduce + (map #(sim-users %) rated-users))]
+              (assoc collection book similarities))) {} book-wprefs))
