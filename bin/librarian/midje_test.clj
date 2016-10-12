@@ -47,4 +47,7 @@
    (make-keyword-list '("11111111" "22222222" "33333333" "44444444" "55555555")) => '(:11111111 :22222222 :33333333 :44444444 :55555555))
  
  (fact "Returns empty list if supplied collection is empty"
-    (make-keyword-list '()) => '()))
+    (make-keyword-list '()) => '())
+ 
+ (fact "Returns empty list if no collection is supplied"
+    (make-keyword-list nil) => '()))
