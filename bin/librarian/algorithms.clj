@@ -76,3 +76,7 @@
 (defn get-highest-rated-book
   [books]
   (subs (str (key (first books))) 1))
+
+(defn parse-book-xml
+  [book]
+  (:content (second (:content (clojure.xml/parse (format "https://www.goodreads.com/book/show/%s?format=xml&key=your-api-key" book))))))
