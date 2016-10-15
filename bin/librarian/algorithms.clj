@@ -1,4 +1,5 @@
-(ns librarian.algorithms)
+(ns librarian.algorithms
+  (:require [librarian.xmlparser :as xmlparser]))
 
 (defn euclid
   [p1 p2]
