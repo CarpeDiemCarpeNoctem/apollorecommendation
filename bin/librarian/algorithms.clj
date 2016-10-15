@@ -80,3 +80,7 @@
 (defn parse-book-xml
   [book]
   (:content (second (:content (clojure.xml/parse (format "https://www.goodreads.com/book/show/%s?format=xml&key=your-api-key" book))))))
+
+(defn recommended-book-info
+  [parsed-book]
+  (zipmap [:title :description] [(first (xmlparser/extract-tag :title parsed-book)) (first (xmlparser/extract-tag :description parsed-book))]))
