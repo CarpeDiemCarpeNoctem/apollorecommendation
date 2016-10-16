@@ -2,16 +2,16 @@
   (:require [hiccup.page :as hic-p]))
 
 (defn gen-page-head
-  []
+  [title]
   [:head
-   [:title (str "My Librarian")]
+   [:title (str "My Librarian: " title)]
    (hic-p/include-css "/css/style.css")
    ])
 
 (defn home-page
   []
   (hic-p/html5
-   (gen-page-head)
+   (gen-page-head "Ask for a book recommendation")
    [:h1 {:id "maintitle"} "My Librarian"]
    [:div {:id "intro"}
     "Welcome to My Librarian book recommendation service"]
@@ -25,6 +25,6 @@
 (defn recommendation-page
   [{:keys [goodreadsid]}]
   (hic-p/html5
-    (gen-page-head)
+    (gen-page-head "Recommendation")
     [:h1 "Recommendation:"]
     [:p "Your goodreads id is:" goodreadsid]))
