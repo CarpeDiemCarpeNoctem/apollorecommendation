@@ -20,3 +20,11 @@
      [:input {:id "searchfield" :type "text" :name "goodreadsid"}]]
     [:div {:id "searchbutton"}
      [:input {:id "recommendbutton" :type "submit" :value "Recommend a book"}]]]))
+
+
+(defn recommendation-page
+  []
+  (hic-p/html5
+    (gen-page-head)
+    [:h1 "Recommendation:"]
+    [:p "Your recommended book will be shown here."]))
