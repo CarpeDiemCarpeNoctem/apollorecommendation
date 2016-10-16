@@ -15,7 +15,7 @@
    [:h1 {:id "maintitle"} "My Librarian"]
    [:div {:id "intro"}
     "Welcome to My Librarian book recommendation service"]
-   [:form {:action "/" :method "POST"}
+   [:form {:action "/recommendation" :method "POST"}
     [:div {:id "search"}
      [:input {:id "searchfield" :type "text" :name "goodreadsid"}]]
     [:div {:id "searchbutton"}
