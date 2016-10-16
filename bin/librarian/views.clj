@@ -26,7 +26,20 @@
 
 (defn recommendation-page
   [{:keys [goodreadsid]}]
+  (let [ratings (-> (xmlparser/get-friends-xml (str goodreadsid))
+               xmlparser/parse-xml
+               xmlparser/get-friends
+               xmlparser/list-friends
+               (#(conj % (str goodreadsid)))
+               xmlparser/create-ratings)
+        result (-> (algorithms/recommend-books ratings (keyword goodreadsid) algorithms/euclid)
+                 algorithms/sort-by-value 
+                 algorithms/get-highest-rated-book 
+                 algorithms/parse-book-xml
+                 algorithms/recommended-book-info)]
   (hic-p/html5
     (gen-page-head "Recommendation")
     [:h1 "Recommendation:"]
-    [:p "Your goodreads id is:" goodreadsid]))
+    [:p (format (str (:title result)))]
+    [:p (format (str (:description result)))]
+    )))
