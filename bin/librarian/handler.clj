@@ -10,6 +10,10 @@
        []
        (views/home-page))
   
+  (POST "/recommendation"
+        []
+       (views/recommendation-page))
+  
   (route/not-found "Not Found"))
 
 (def app
