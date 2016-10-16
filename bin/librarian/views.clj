@@ -23,7 +23,7 @@
 
 
 (defn recommendation-page
-  [goodreadsid]
+  [{:keys [goodreadsid]}]
   (hic-p/html5
     (gen-page-head)
     [:h1 "Recommendation:"]
