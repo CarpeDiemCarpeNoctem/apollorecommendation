@@ -2,8 +2,11 @@
   (:require [oauth.client :as oauth]
             [clj-http.client :as http]))
 
-(def consumer (oauth/make-consumer "your-consumer-key"
-                                   "your-consumer-secret"
+(def consumer-key "your-consumer-key")
+(def consumer-secret "your-consumer-secret")
+
+(def consumer (oauth/make-consumer consumer-key
+                                   consumer-secret
                                    "https://www.goodreads.com/oauth/request_token"
                                    "https://www.goodreads.com/oauth/access_token"
                                    "https://www.goodreads.com/oauth/authorize"
