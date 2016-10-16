@@ -30,6 +30,11 @@
           0
           (/ covariance standard-deviation))))))
 
+(defn manhattan-distance
+  [user friend]
+  (let [books-both-read (filter user (keys friend))] 
+    (reduce #(+ %1 (Math/abs (- (user %2) (friend %2)))) 0 books-both-read)))
+
 (defn get-similarities
   [ratings user formula]
   (let [list-without-user (dissoc ratings user)]
