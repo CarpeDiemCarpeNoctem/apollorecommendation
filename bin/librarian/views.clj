@@ -1,6 +1,7 @@
 (ns librarian.views
   (:require [hiccup.page :as hic-p]
-            [librarian.xmlparser :as xmlparser]))
+            [librarian.xmlparser :as xmlparser]
+            [librarian.algorithms :as algorithms]))
 
 (defn gen-page-head
   [title]
