@@ -14,4 +14,9 @@
    (gen-page-head)
    [:h1 {:id "maintitle"} "My Librarian"]
    [:div {:id "intro"}
-    "Welcome to My Librarian book recommendation service"]))
+    "Welcome to My Librarian book recommendation service"]
+   [:form {:action "/" :method "POST"}
+    [:div {:id "search"}
+     [:input {:id "searchfield" :type "text" :name "goodreadsid"}]]
+    [:div {:id "searchbutton"}
+     [:input {:id "recommendbutton" :type "submit" :value "Recommend a book"}]]]))
