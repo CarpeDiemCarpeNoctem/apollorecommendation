@@ -23,8 +23,8 @@
 
 
 (defn recommendation-page
-  []
+  [goodreadsid]
   (hic-p/html5
     (gen-page-head)
     [:h1 "Recommendation:"]
-    [:p "Your recommended book will be shown here."]))
+    [:p "Your goodreads id is:" goodreadsid]))
