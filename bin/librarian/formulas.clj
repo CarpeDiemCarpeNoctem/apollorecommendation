@@ -32,7 +32,9 @@
 (defn manhattan-distance
   [user friend]
   (let [books-both-read (filter user (keys friend))] 
-    (reduce #(+ %1 (Math/abs (- (user %2) (friend %2)))) 0 books-both-read)))
+    (if (empty? books-both-read)
+      0
+      (reduce #(+ %1 (Math/abs (- (user %2) (friend %2)))) 0 books-both-read))))
 
 (defn spearman
   [user friend]
