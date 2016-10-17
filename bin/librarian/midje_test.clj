@@ -4,6 +4,9 @@
             [librarian.algorithms :refer :all]
             [librarian.xmlparser :refer :all]))
 
+; Ratings Tests:
+; - - - - - - - - - -
+
 (facts "ns:ratings 'parse-xml'"
   (fact "Returns a map from supplied XML"
     (parse-xml "<hello>world</hello>") => {:tag :hello, :attrs nil, :content ["world"]}))
@@ -25,6 +28,9 @@
  
  (fact "Returns empty list if no collection is supplied"
     (make-keyword-list nil) => '()))
+
+; Recommendation Tests:
+; - - - - - - - - - -
 
 (facts "ns:recommendations 'recommend-books'"
  (fact "Returns map of key-value pairs of book ids and their ratings"
