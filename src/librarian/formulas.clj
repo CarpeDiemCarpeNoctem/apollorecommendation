@@ -40,7 +40,8 @@
   [user friend]
   (let [books-both-read (filter user (keys friend))] 
     (let [distance (reduce #(+ %1 (Math/pow (- (user %2) (friend %2)) 2)) 0 books-both-read)
-          denominator (* (count books-both-read) (- (Math/pow (count books-both-read) 2) 1))]
+          n (count books-both-read)
+          denominator (* n (- (Math/pow n 2) 1))]
       (if (= denominator 0.0)
         0
         (Math/abs (- 1 (/ (* 6 distance) denominator))))
