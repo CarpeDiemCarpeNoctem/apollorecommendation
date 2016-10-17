@@ -1,5 +1,5 @@
 (ns librarian.recommendation
-  (:require [librarian.xmlparser :as xmlparser]))
+  (:require [librarian.ratings :as ratings]))
 
 (defn euclid
   [p1 p2]
@@ -98,4 +98,4 @@
 
 (defn recommended-book-info
   [parsed-book]
-  (zipmap [:title :description] [(first (xmlparser/extract-tag :title parsed-book)) (first (xmlparser/extract-tag :description parsed-book))]))
+  (zipmap [:title :description] [(first (ratings/extract-tag :title parsed-book)) (first (ratings/extract-tag :description parsed-book))]))
