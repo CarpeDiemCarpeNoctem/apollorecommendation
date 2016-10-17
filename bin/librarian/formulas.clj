@@ -49,3 +49,10 @@
   (let [books-both-read (filter user (keys friend))] 
     (let [vector-list (reduce #(conj %1 (Math/abs (- (user %2) (friend %2)))) [] books-both-read)]
       (apply max vector-list))))
+
+(defn jaccard-index
+  [user friend]
+  (let [first-person (reduce #(into %1 %2) #{} user)
+        second-person (reduce #(into %1 %2) #{} friend)]
+    (/ (count (clojure.set/intersection first-person second-person))
+       (count (clojure.set/union first-person second-person)))))
