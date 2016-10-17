@@ -61,7 +61,10 @@
     (chebyshev {:123 3 :234 5 :345 4} {:123 3 :234 5 :345 4}) => 0)
   
   (fact "Returns Chebyshev correlation score"
-    (chebyshev {:123 3 :234 5 :345 4} {:123 4 :345 5 :456 2 :567 3.0, :678 5.0}) => 1))
+    (chebyshev {:123 3 :234 5 :345 4} {:123 4 :345 5 :456 2 :567 3.0, :678 5.0}) => 1)
+  
+  (fact "Returns Chebyshev correlation score"
+    (chebyshev {} {:123 4 :345 5 :456 2 :567 3.0, :678 5.0}) => 0))
 
 (facts "ns:ratings 'parse-xml'"
   (fact "Returns a map from supplied XML"
