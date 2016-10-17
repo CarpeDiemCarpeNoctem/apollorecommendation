@@ -1,7 +1,7 @@
 (ns librarian.ratings
-  (:require [oauth.client :as oauth]
-            [clojure.xml :only ['parse]]
+  (:require [clojure.xml :only ['parse]]
             [librarian.oauthcon :as ocon]
+            [librarian.configuration :as config]
             ))
 
 (defn get-friends-xml
