@@ -11,6 +11,10 @@
 
 (def user-book-reviews "http://www.goodreads.com/review/list?v=2&key=%s&id=%s&sort=votes&per_page=1000&order=d")
 
+;  - Goodreads API address for information about a book:
+
+(def book-info "https://www.goodreads.com/book/show/%s?format=xml&key=%s")
+
 ; OAuth Configuration
 ; - - - - - - - - - -
 
