@@ -95,7 +95,7 @@
 
 (defn recommended-book-xml
   [book]
-  (format "https://www.goodreads.com/book/show/%s?format=xml&key=%s" book "your-api-key"))
+  (format config/book-info book config/api-key))
 
 (defn parse-book-xml
   [book-xml]
