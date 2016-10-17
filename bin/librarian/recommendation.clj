@@ -92,6 +92,10 @@
   [books]
   (subs (str (key (first books))) 1))
 
+(defn recommended-book-xml
+  [book]
+  (format "https://www.goodreads.com/book/show/%s?format=xml&key=%s" book "your-api-key"))
+
 (defn parse-book-xml
   [book]
   (:content (second (:content (clojure.xml/parse (format "https://www.goodreads.com/book/show/%s?format=xml&key=your-api-key" book))))))
