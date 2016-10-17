@@ -98,7 +98,9 @@
 
 (defn parse-book-xml
   [book-xml]
-  (:content (second (:content (clojure.xml/parse book-xml)))))
+  (if (nil? book-xml)
+    nil
+    (:content (second (:content (clojure.xml/parse book-xml))))))
 
 (defn recommended-book-info
   [parsed-book]
