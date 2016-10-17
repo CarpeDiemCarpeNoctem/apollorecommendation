@@ -45,7 +45,10 @@
 
 (facts "ns:formulas 'spearman'"
   (fact "Returns Spearman correlation score"
-    (spearman {:123 3 :234 5 :345 4} {:123 3 :234 5 :345 4}) => 1.0))
+    (spearman {:123 3 :234 5 :345 4} {:123 3 :234 5 :345 4}) => 1.0)
+  
+  (fact "Returns Spearman correlation score"
+    (spearman {:123 3 :234 5 :345 4} {:123 4 :345 5 :456 2 :567 3.0, :678 5.0}) => 1.0))
 
 (facts "ns:ratings 'parse-xml'"
   (fact "Returns a map from supplied XML"
