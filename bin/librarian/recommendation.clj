@@ -91,7 +91,9 @@
 
 (defn get-highest-rated-book
   [books]
-  (subs (str (key (first books))) 1))
+  (if (empty? books)
+    nil
+    (subs (str (key (first books))) 1)))
 
 (defn recommended-book-xml
   "Creates the URL for the XML file of the recommended book from which to parse the book information"
