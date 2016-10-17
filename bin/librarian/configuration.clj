@@ -1,5 +1,16 @@
 (ns librarian.configuration)
 
+; Goodreads Configuration
+; - - - - - - - - - -
+
+;  - Goodreads API key:
+
+(def api-key "your-api-key")
+
+;  - Goodreads API address for user's book review list:
+
+(def user-book-reviews "http://www.goodreads.com/review/list?v=2&key=%s&id=%s&sort=votes&per_page=1000&order=d")
+
 ; OAuth Configuration
 ; - - - - - - - - - -
 
