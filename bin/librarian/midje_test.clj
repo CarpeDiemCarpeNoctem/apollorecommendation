@@ -43,6 +43,10 @@
   (fact "Returns Manhattan distance score"
     (manhattan-distance {} {}) => 0))
 
+(facts "ns:formulas 'spearman'"
+  (fact "Returns Spearman correlation score"
+    (spearman {:123 3 :234 5 :345 4} {:123 3 :234 5 :345 4}) => 1.0))
+
 (facts "ns:ratings 'parse-xml'"
   (fact "Returns a map from supplied XML"
     (parse-xml "<hello>world</hello>") => {:tag :hello, :attrs nil, :content ["world"]}))
