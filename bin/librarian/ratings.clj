@@ -14,8 +14,11 @@
 
 (defn get-friends
   [parsedxml]
-  (let [friends (-> parsedxml :content second)]
-    (:content friends)))
+  (if-let [friends (-> parsedxml :content second)]
+    (if (< (int 0) (int (. Integer parseInt (-> friends :attrs :total))))
+      (:content friends)
+      nil)
+    nil))
 
 (defn list-friends
   [friends-vec]
