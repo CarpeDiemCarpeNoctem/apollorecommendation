@@ -73,4 +73,6 @@
         second-person (reduce #(into %1 %2) #{} friend)
         n-first-person (count first-person)
         n-second-person (count second-person)]
-  (/ (* 2 (count (clojure.set/intersection first-person second-person))) (+ n-first-person n-second-person))))
+    (if (= n-first-person n-second-person)
+      0
+      (/ (* 2 (count (clojure.set/intersection first-person second-person))) (+ n-first-person n-second-person)))))
