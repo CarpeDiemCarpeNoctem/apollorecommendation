@@ -32,7 +32,10 @@
 
 (facts "ns:formulas 'manhattan-distance'"
   (fact "Returns Manhattan distance score"
-    (manhattan-distance {:123 3 :234 5 :345 4} {:123 3 :234 5 :345 4}) => 0))
+    (manhattan-distance {:123 3 :234 5 :345 4} {:123 3 :234 5 :345 4}) => 0)
+  
+  (fact "Returns Manhattan distance score"
+    (manhattan-distance {:123 3 :234 5 :345 4} {:123 4 :345 5 :456 2 :567 3.0, :678 5.0}) => 2))
 
 (facts "ns:ratings 'parse-xml'"
   (fact "Returns a map from supplied XML"
