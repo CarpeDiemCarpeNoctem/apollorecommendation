@@ -47,4 +47,5 @@
 (defn chebyshev
   [user friend]
   (let [books-both-read (filter user (keys friend))] 
-    (apply max (reduce #(conj %1 (Math/abs (- (user %2) (friend %2)))) [] books-both-read))))
+    (let [vector-list (reduce #(conj %1 (Math/abs (- (user %2) (friend %2)))) [] books-both-read)]
+      (apply max vector-list))))
