@@ -102,6 +102,10 @@
 
 (defn recommended-book-info
   [parsed-book]
-  (let [title (first (ratings/extract-tag :title parsed-book))
-       description (first (ratings/extract-tag :description parsed-book))]
-    (zipmap [:title :description] [title description])))
+  (if (nil? parsed-book)
+    (let [title "No recommendation"
+         description "You need to have friends and some books rated. Also make sure you allow application access to your profile."]
+      (zipmap [:title :description] [title description]))
+    (let [title (first (ratings/extract-tag :title parsed-book))
+         description (first (ratings/extract-tag :description parsed-book))]
+      (zipmap [:title :description] [title description]))))
