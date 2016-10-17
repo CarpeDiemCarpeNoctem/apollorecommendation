@@ -101,6 +101,7 @@
     (format config/book-info book config/api-key)))
 
 (defn parse-book-xml
+  "Parses the recommended book"
   [book-xml]
   (if (nil? book-xml)
     nil
