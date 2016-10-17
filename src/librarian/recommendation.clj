@@ -102,4 +102,6 @@
 
 (defn recommended-book-info
   [parsed-book]
-  (zipmap [:title :description] [(first (ratings/extract-tag :title parsed-book)) (first (ratings/extract-tag :description parsed-book))]))
+  (let [title (first (ratings/extract-tag :title parsed-book))
+       description (first (ratings/extract-tag :description parsed-book))]
+    (zipmap [:title :description] [title description])))
