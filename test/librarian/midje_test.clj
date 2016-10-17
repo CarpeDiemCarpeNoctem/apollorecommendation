@@ -30,6 +30,10 @@
   (fact "Returns Pearson distance score"
     (pearson {} {}) => 0))
 
+(facts "ns:formulas 'manhattan-distance'"
+  (fact "Returns Manhattan distance score"
+    (manhattan-distance {:123 3 :234 5 :345 4} {:123 3 :234 5 :345 4}) => 0))
+
 (facts "ns:ratings 'parse-xml'"
   (fact "Returns a map from supplied XML"
     (parse-xml "<hello>world</hello>") => {:tag :hello, :attrs nil, :content ["world"]}))
