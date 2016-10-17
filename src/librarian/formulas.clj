@@ -62,8 +62,10 @@
   [user friend]
   (let [first-person (reduce #(into %1 %2) #{} user)
         second-person (reduce #(into %1 %2) #{} friend)]
-    (/ (count (clojure.set/intersection first-person second-person))
-       (count (clojure.set/union first-person second-person)))))
+    (if (empty? (clojure.set/union first-person second-person))
+           0
+           (/ (count (clojure.set/intersection first-person second-person))
+              (count (clojure.set/union first-person second-person))))))
 
 (defn sorensen-dice
   [user friend]
