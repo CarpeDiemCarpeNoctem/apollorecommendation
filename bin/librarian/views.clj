@@ -35,6 +35,7 @@
         result (-> (recommendation/recommend-books ratings (keyword goodreadsid) recommendation/euclid)
                  recommendation/sort-by-value 
                  recommendation/get-highest-rated-book 
+                 recommendation/recommended-book-xml
                  recommendation/parse-book-xml
                  recommendation/recommended-book-info)]
   (hic-p/html5
