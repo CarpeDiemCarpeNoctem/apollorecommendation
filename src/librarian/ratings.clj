@@ -23,6 +23,7 @@
     (first (:content (first (:content user))))))
 
 (defn user-book-reviews
+  "Creates a url for an API call to user's book reviews XML file"
   [userid]
   (format config/user-book-reviews config/api-key userid))
 
