@@ -6,7 +6,9 @@
 
 (defn get-friends-xml
   [id]
-  (:body (ocon/get-friends id)))
+  (if-let [con (:body (ocon/get-friends id))]
+    con
+    nil))
 
 (defn parse-xml
   [s]
