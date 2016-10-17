@@ -56,3 +56,11 @@
         second-person (reduce #(into %1 %2) #{} friend)]
     (/ (count (clojure.set/intersection first-person second-person))
        (count (clojure.set/union first-person second-person)))))
+
+(defn sorensen-dice
+  [user friend]
+  (let [first-person (reduce #(into %1 %2) #{} user)
+        second-person (reduce #(into %1 %2) #{} friend)
+        n-first-person (count first-person)
+        n-second-person (count second-person)]
+  (/ (* 2 (count (clojure.set/intersection first-person second-person))) (+ n-first-person n-second-person))))
