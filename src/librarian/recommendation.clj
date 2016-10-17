@@ -96,7 +96,9 @@
 (defn recommended-book-xml
   "Creates the URL for the XML file of the recommended book from which to parse the book information"
   [book]
-  (format config/book-info book config/api-key))
+  (if (nil? book)
+    nil
+    (format config/book-info book config/api-key)))
 
 (defn parse-book-xml
   [book-xml]
