@@ -104,8 +104,10 @@
   [parsed-book]
   (if (nil? parsed-book)
     (let [title "No recommendation"
-         description "You need to have friends and some books rated. Also make sure you allow application access to your profile."]
-      (zipmap [:title :description] [title description]))
+         description "You need to have friends and some books rated. Also make sure you allow application access to your profile."
+         link "http://www.goodreads.com"]
+      (zipmap [:title :description :alink] [title description link]))
     (let [title (first (ratings/extract-tag :title parsed-book))
-         description (first (ratings/extract-tag :description parsed-book))]
-      (zipmap [:title :description] [title description]))))
+         description (first (ratings/extract-tag :description parsed-book))
+         link (first (ratings/extract-tag :url parsed-book))]
+      (zipmap [:title :description :alink] [title description link]))))
