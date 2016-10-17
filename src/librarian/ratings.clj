@@ -14,7 +14,8 @@
 
 (defn get-friends
   [parsedxml]
-  (:content (-> parsedxml :content second)))
+  (let [friends (-> parsedxml :content second)]
+    (:content friends)))
 
 (defn list-friends
   [friends-vec]
