@@ -22,6 +22,7 @@
     nil))
 
 (defn list-friends
+  "Returns a list of friends' ids as keywords"
   [friends-vec]
   (for [user friends-vec]
     (first (:content (first (:content user))))))
