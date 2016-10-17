@@ -97,8 +97,8 @@
   (format "https://www.goodreads.com/book/show/%s?format=xml&key=%s" book "your-api-key"))
 
 (defn parse-book-xml
-  [book]
-  (:content (second (:content (clojure.xml/parse (format "https://www.goodreads.com/book/show/%s?format=xml&key=your-api-key" book))))))
+  [book-xml]
+  (:content (second (:content (clojure.xml/parse book-xml)))))
 
 (defn recommended-book-info
   [parsed-book]
