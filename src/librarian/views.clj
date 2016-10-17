@@ -1,7 +1,7 @@
 (ns librarian.views
   (:require [hiccup.page :as hic-p]
-            [librarian.xmlparser :as xmlparser]
-            [librarian.algorithms :as algorithms]))
+            [librarian.ratings :as ratings]
+            [librarian.recommendation :as recommendation]))
 
 (defn gen-page-head
   [title]
@@ -26,17 +26,17 @@
 
 (defn recommendation-page
   [{:keys [goodreadsid]}]
-  (let [ratings (-> (xmlparser/get-friends-xml (str goodreadsid))
-               xmlparser/parse-xml
-               xmlparser/get-friends
-               xmlparser/list-friends
+  (let [ratings (-> (ratings/get-friends-xml (str goodreadsid))
+               ratings/parse-xml
+               ratings/get-friends
+               ratings/list-friends
                (#(conj % (str goodreadsid)))
-               xmlparser/create-ratings)
-        result (-> (algorithms/recommend-books ratings (keyword goodreadsid) algorithms/euclid)
-                 algorithms/sort-by-value 
-                 algorithms/get-highest-rated-book 
-                 algorithms/parse-book-xml
-                 algorithms/recommended-book-info)]
+               ratings/create-ratings)
+        result (-> (recommendation/recommend-books ratings (keyword goodreadsid) recommendation/euclid)
+                 recommendation/sort-by-value 
+                 recommendation/get-highest-rated-book 
+                 recommendation/parse-book-xml
+                 recommendation/recommended-book-info)]
   (hic-p/html5
     (gen-page-head "Recommendation")
     [:h1 "Recommendation:"]
