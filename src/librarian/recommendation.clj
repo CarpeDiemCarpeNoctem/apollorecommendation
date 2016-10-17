@@ -90,6 +90,7 @@
   (into (sorted-map-by (fn [key1 key2] (compare [(get coll key2) key2] [(get coll key1) key1]))) coll))
 
 (defn get-highest-rated-book
+  "Returns the highest rated book id"
   [books]
   (if (empty? books)
     nil
