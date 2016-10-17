@@ -101,3 +101,7 @@
 (facts "ns:recommendations 'get-highest-rated-book'"
   (fact "Returns id of highest rated book"
     (get-highest-rated-book {:456 2.0, :567 3.0, :678 5.0}) => "678"))
+
+(facts "ns:recommendations 'recommended-book-info'"
+  (fact "Returns nil if no input is supplied"
+    (recommended-book-info nil) => {:alink "http://www.goodreads.com", :description "You need to have friends and some books rated. Also make sure you allow application access to your profile.", :title "No recommendation"}))
