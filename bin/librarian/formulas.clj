@@ -43,3 +43,8 @@
         0
         (Math/abs (- 1 (/ (* 6 distance) denominator))))
       )))
+
+(defn chebyshev
+  [user friend]
+  (let [books-both-read (filter user (keys friend))] 
+    (apply max (reduce #(conj %1 (Math/abs (- (user %2) (friend %2)))) [] books-both-read))))
