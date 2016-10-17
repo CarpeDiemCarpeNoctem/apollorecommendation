@@ -103,6 +103,7 @@
     (:content (second (:content (clojure.xml/parse book-xml))))))
 
 (defn recommended-book-info
+  "Returns the recommended book title, description and link"
   [parsed-book]
   (if (nil? parsed-book)
     (let [title "No recommendation"
