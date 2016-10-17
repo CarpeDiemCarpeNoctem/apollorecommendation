@@ -28,6 +28,7 @@
   (format config/user-book-reviews config/api-key userid))
 
 (defn extract-tag
+  "Returns contents of the tag from the provided collection"
   [tag coll]
   (let [n (first coll)]
     (if (= tag (:tag n))
