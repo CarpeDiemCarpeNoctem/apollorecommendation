@@ -102,6 +102,10 @@
   (fact "Returns id of highest rated book"
     (get-highest-rated-book {:456 2.0, :567 3.0, :678 5.0}) => "678"))
 
+(facts "ns:recommendations 'recommended-book-xml'"
+  (fact "Returns nil if no book is supplied"
+    (get-highest-rated-book nil) => nil))
+
 (facts "ns:recommendations 'parse-book-xml'"
   (fact "Returns nil if no input is supplied"
     (parse-book-xml nil) => nil))
