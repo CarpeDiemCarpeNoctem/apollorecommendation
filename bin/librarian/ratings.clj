@@ -53,5 +53,5 @@
 
 (defn create-ratings
   [list-of-users]
-  (let [keyword-ids (map keyword list-of-users)]
+  (let [keyword-ids (make-keyword-list list-of-users)]
     (zipmap keyword-ids (users-book-ratings list-of-users))))
