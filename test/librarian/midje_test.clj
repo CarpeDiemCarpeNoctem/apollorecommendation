@@ -56,6 +56,10 @@
   (fact "Returns Spearman correlation score"
     (spearman {} {}) => 0))
 
+(facts "ns:formulas 'chebyshev'"
+  (fact "Returns Chebyshev correlation score"
+    (chebyshev {:123 3 :234 5 :345 4} {:123 3 :234 5 :345 4}) => 0))
+
 (facts "ns:ratings 'parse-xml'"
   (fact "Returns a map from supplied XML"
     (parse-xml "<hello>world</hello>") => {:tag :hello, :attrs nil, :content ["world"]}))
