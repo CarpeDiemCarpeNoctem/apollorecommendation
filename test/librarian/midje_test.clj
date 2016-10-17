@@ -154,4 +154,7 @@
     (sorensen-dice {:123 3 :234 5 :345 4} {:123 4 :345 5 :456 2 :567 3.0, :678 5.0}) => 1/2)
   
   (fact "Returns Sorensen-Dice correlation score"
-    (sorensen-dice {} {:123 4 :345 5 :456 2 :567 3.0, :678 5.0}) => 0))
+    (sorensen-dice {} {:123 4 :345 5 :456 2 :567 3.0, :678 5.0}) => 0)
+  
+  (fact "Returns Sorensen-Dice correlation score"
+    (sorensen-dice {} {}) => 0))
