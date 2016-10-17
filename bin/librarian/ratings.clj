@@ -13,6 +13,7 @@
   (clojure.xml/parse (java.io.ByteArrayInputStream. (.getBytes s))))
 
 (defn get-friends
+  "Returns a vector of maps with information of all friends"
   [parsedxml]
   (if-let [friends (-> parsedxml :content second)]
     (if (< (int 0) (int (. Integer parseInt (-> friends :attrs :total))))
