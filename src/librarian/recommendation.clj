@@ -1,5 +1,6 @@
 (ns librarian.recommendation
-  (:require [librarian.ratings :as ratings]))
+  (:require [librarian.ratings :as ratings]
+            [librarian.configuration :as config]))
 
 (defn euclid
   [p1 p2]
