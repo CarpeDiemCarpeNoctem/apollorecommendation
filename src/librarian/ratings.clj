@@ -30,6 +30,13 @@
   (for [user friends-vec]
     (first (:content (first (:content user))))))
 
+; Enhanced algorithm that creates a list of all user's friends and firends of user's friends
+; to give better recommendation results based on more people against which similarity scores
+; can be calculated.
+; The enhanced algorithm replaces the list-friends function and instead includes two functions:
+; - list-user-and-extended-friends, vector-of-extended-friends
+; -- vector-of-extended-friends is a helper function used in list-user-and-extended-friends
+
 (defn vector-of-extended-friends
   [friends-list]
   (flatten (for [user friends-list] (list-friends (get-friends (parse-xml (get-friends-xml (str user))))))))
