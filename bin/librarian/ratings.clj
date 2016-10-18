@@ -45,6 +45,9 @@
   [friends-vec]
   (into (set (list-friends friends-vec)) (vector-of-extended-friends first-degree-friends)))
 
+; The following 3 functions are helper functions used by users-book-ratings function:
+; - user-book-reviews, extract-tag, book-ratings
+
 (defn user-book-reviews
   "Creates a url for an API call to user's book reviews XML file"
   [userid]
