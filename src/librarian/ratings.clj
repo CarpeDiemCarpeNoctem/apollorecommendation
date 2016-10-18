@@ -65,6 +65,7 @@
 ; - - - - - - - - - -
 
 (defn users-book-ratings
+  "Returns maps of key-value pairs of book ids and ratings that each user gave them"
   [list-of-users]
   (for [user list-of-users] (-> (user-book-reviews user) book-ratings)))
 
