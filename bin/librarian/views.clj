@@ -22,7 +22,7 @@
     [:div {:id "search"}
      [:input {:id "searchfield" :type "text" :name "goodreadsid"}]]
     [:div {:id "enhanced"}
-     [:input {:type "checkbox", :name "enhance", :id "enhance-algorithm", :value "yes", :checked false}]]
+     [:label {:for "enhance-algorithm"} "Use enhanced algorithm: "] [:input {:type "checkbox", :name "enhance", :id "enhance-algorithm", :value "yes", :checked false}]]
     [:div {:id "searchbutton"}
      [:input {:id "recommendbutton" :type "submit" :value "Recommend a book"}]]]))
 
