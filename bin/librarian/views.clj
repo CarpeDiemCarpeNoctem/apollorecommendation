@@ -24,7 +24,9 @@
     [:div {:id "enhanced"}
      [:label {:for "enhance-algorithm"} "Use enhanced algorithm: "] [:input {:type "checkbox", :name "enhance", :id "enhance-algorithm", :value "yes", :checked false}]]
     [:div {:id "searchbutton"}
-     [:input {:id "recommendbutton" :type "submit" :value "Recommend a book"}]]]))
+     [:input {:id "recommendbutton" :type "submit" :value "Recommend a book"}]]]
+   [:div {:id "load"}]
+   (hic-p/include-js "/js/script.js")))
 
 
 (defn recommendation-page
