@@ -26,7 +26,7 @@
     [:div {:id "searchbutton"}
      [:input {:id "recommendbutton" :type "submit" :value "Recommend a book"}]]]
    [:div {:id "load"}]
-   (hic-p/include-js "/js/script.js")))
+   (hic-p/include-js "/js/main.js")))
 
 
 (defn recommendation-page
