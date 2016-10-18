@@ -1,8 +1,9 @@
 (ns librarian.midje-test
   (:use midje.sweet)
   (:require [librarian.test-data :refer :all]
-            [librarian.algorithms :refer :all]
-            [librarian.xmlparser :refer :all]))
+            [librarian.ratings :refer :all]
+            [librarian.recommendation :refer :all]
+            [librarian.formulas :refer :all]))
 
 ; Ratings Tests:
 ; - - - - - - - - - -
@@ -74,7 +75,7 @@
 ; Formulas Tests:
 ; - - - - - - - - - -
 
-(facts "ns:algorithms 'euclid'"
+(facts "ns:formulas 'euclid'"
   (fact "Returns Euclidean distance score"
     (euclid {:123 3 :234 5 :345 4} {:123 3 :234 5 :345 4}) => 1.0)
   
