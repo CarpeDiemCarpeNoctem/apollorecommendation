@@ -38,3 +38,7 @@ h1 {
     padding-top: 2%;
     padding-bottom: 2%;
 }
+
+#searchbutton {
+    text-align: center;
+}
