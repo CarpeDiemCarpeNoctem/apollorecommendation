@@ -44,6 +44,7 @@
         (extract-tag tag (rest coll)))))
 
 (defn book-ratings
+  "Returns a list of vectors of book ids and ratings"
   [url]
   (let [reviews (extract-tag :reviews (:content (clojure.xml/parse url)))]
     (into {} (map (fn [review]
