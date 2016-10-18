@@ -55,6 +55,7 @@
                   reviews))))
 
 (defn make-keyword-list
+  "Returns a list of keywords from a given collection"
   [collection]
   (map keyword collection))
 
