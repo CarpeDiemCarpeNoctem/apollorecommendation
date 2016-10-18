@@ -66,7 +66,7 @@
 
 (defn users-book-ratings
   [list-of-users]
-  (for [user list-of-users] (book-ratings (user-book-reviews user))))
+  (for [user list-of-users] (-> (user-book-reviews user) book-ratings)))
 
 (defn create-ratings
   [list-of-users]
