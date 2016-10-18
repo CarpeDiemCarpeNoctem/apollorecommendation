@@ -13,6 +13,11 @@ h1 {
     text-align: center;
 }
 
+#maintitle {
+    font-size: 10em;
+    margin-bottom: 30px;
+}
+
 #intro {
     font-size: 1.3em;
     text-align: center;

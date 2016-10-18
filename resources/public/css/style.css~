@@ -16,4 +16,6 @@ h1 {
 #intro {
     font-size: 1.3em;
     text-align: center;
+    padding-bottom: 2%;
+    margin-top: -30px;
 }
