@@ -54,10 +54,15 @@
                       [(keyword book-id) book-rating]))
                   reviews))))
 
+; make-keyword-list is a helper function used by create-ratings
+; to make code more readable
+
 (defn make-keyword-list
   "Returns a list of keywords from a given collection"
   [collection]
   (map keyword collection))
+
+; - - - - - - - - - -
 
 (defn users-book-ratings
   [list-of-users]
