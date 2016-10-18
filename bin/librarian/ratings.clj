@@ -34,6 +34,10 @@
   [friends-list]
   (flatten (for [user friends-list] (list-friends (get-friends (parse-xml (get-friends-xml (str user))))))))
 
+(defn list-user-and-extended-friends
+  [friends-vec]
+  (into (set (list-friends friends-vec)) (vector-of-extended-friends first-degree-friends)))
+
 (defn user-book-reviews
   "Creates a url for an API call to user's book reviews XML file"
   [userid]
