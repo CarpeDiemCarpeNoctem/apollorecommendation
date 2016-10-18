@@ -30,6 +30,10 @@
   (for [user friends-vec]
     (first (:content (first (:content user))))))
 
+(defn vector-of-extended-friends
+  [friends-list]
+  (for [user friends-list] (list-friends (get-friends (parse-xml (get-friends-xml (str user)))))))
+
 (defn user-book-reviews
   "Creates a url for an API call to user's book reviews XML file"
   [userid]
