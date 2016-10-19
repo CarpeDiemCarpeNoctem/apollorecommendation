@@ -47,6 +47,8 @@
       (reduce #(+ %1 (Math/abs (- (int (user %2)) (int (friend %2))))) (int 0) books-both-read))))
 
 (defn spearman
+  "Spearman Rank Correlation measures the correlation between two sequences of values.
+   The two sequences are ranked separately and the differences in rank are calculated at each position, i."
   [user friend]
   (let [books-both-read (filter user (keys friend))] 
     (if (empty? books-both-read)
