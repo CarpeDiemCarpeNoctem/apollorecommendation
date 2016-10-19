@@ -56,7 +56,9 @@
 
 (defn list-user-and-extended-friends
   [friends-vec]
-  (into (set (list-friends friends-vec)) (vector-of-extended-friends first-degree-friends)))
+  (let [first-degree-friends (list-friends friends-vec)
+        extended-friends (vector-of-extended-friends first-degree-friends)]
+    (into (set first-degree-friends) extended-friends)))
 
 ; The following 3 functions are helper functions used by users-book-ratings function:
 ; - user-book-reviews, extract-tag, book-ratings
