@@ -10,6 +10,8 @@
 ; two people based on which a book will be recommended for the user to read.
 ; - - - - - - - - - -
 
+;********** Euclidean distance **********
+
 (defn euclid
   "The Euclidean distance between points p and q is the length of the line segment connecting them."
   [user friend]
@@ -18,6 +20,8 @@
       (int 0)
       (let [distance (float (reduce #(+ %1 (float (Math/pow (- (int (user %2)) (int (friend %2))) (int 2)))) (int 0) books-both-read))]
         (/ (int 1) (+ distance (int 1)))))))
+
+;********** Pearson correlation **********
 
 (defn pearson
   "Pearson correlation measures the similarity in shape between two profiles.
@@ -44,6 +48,8 @@
           (int 0)
           (float (/ covariance standard-deviation)))))))
 
+;********** Manhattan distance **********
+
 (defn manhattan-distance
   "The distance between two points measured along axes at right angles.
    In a plane with p1 at (x1, y1) and p2 at (x2, y2), it is |x1 - x2| + |y1 - y2|."
@@ -52,6 +58,8 @@
     (if (empty? books-both-read)
       (int 0)
       (reduce #(+ %1 (Math/abs (- (int (user %2)) (int (friend %2))))) (int 0) books-both-read))))
+
+;********** Spearman rank correlation **********
 
 (defn spearman
   "Spearman Rank Correlation measures the correlation between two sequences of values.
@@ -68,6 +76,8 @@
           (Math/abs (- (int 1) (/ (* (int 6) distance) denominator))))
         ))))
 
+;********** Chebyshev distance **********
+
 (defn chebyshev
   "The Chebyshev distance is a metric defined on a vector space where the distance
    between two vectors is the greatest difference along any coordinate dimension."
@@ -79,6 +89,8 @@
         (apply max vector-list))
         )))
 
+;********** Jaccard coefficient and distance **********
+
 (defn jaccard-index
   "The Jaccard coefficient measures similarity between finite sample sets,
    and is defined as the size of the intersection divided by the size of the union of the sample sets."
@@ -89,6 +101,8 @@
            (int 0)
            (/ (int (count (clojure.set/intersection first-person second-person)))
               (int (count (clojure.set/union first-person second-person)))))))
+
+;********** Sorensen-Dice coefficient **********
 
 (defn sorensen-dice
   "The Sorensen-dice coefficient is a statistic used for comparing the similarity of two samples."
