@@ -1,5 +1,6 @@
 (ns librarian.views
   (:require [hiccup.page :as hic-p]
+            [hiccup.element :as hic-e :refer [link-to]]
             [librarian.ratings :as ratings]
             [librarian.recommendation :as recommendation]
             [librarian.configuration :as config]))
