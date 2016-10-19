@@ -5,6 +5,13 @@
 (use 'criterium.core)
 (set! *warn-on-reflection* true)
 
+; - - - - - - - - - -
+; The recommendation namespace contains functions that take a map of user ids
+; mapped to maps of book ids and the ratings they gave them and makes a
+; book recommendation to the user based on the calculation of similarity
+; scores between the user and each of their friends.
+; - - - - - - - - - -
+
 (defn get-similarities
   "Returns a list of similarity scores between the user and each of their friends"
   [ratings user formula]
