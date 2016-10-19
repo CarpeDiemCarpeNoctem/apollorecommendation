@@ -62,6 +62,8 @@
         ))))
 
 (defn chebyshev
+  "The Chebyshev distance is a metric defined on a vector space where the distance
+   between two vectors is the greatest difference along any coordinate dimension."
   [user friend]
   (let [books-both-read (filter user (keys friend))] 
     (if (empty? books-both-read)
