@@ -16,7 +16,10 @@
     (asynchronized inc [1 2 3 4 5]) => '(2 3 4 5 6))
   
   (fact "when collection is empty it returns an empty list"
-    (asynchronized inc []) => '()))
+    (asynchronized inc []) => '())
+  
+  (fact "when no collection is present it returns an empty list"
+    (asynchronized inc nil) => '()))
 
 (facts "ns:ratings 'parse-xml'"
   (fact "Returns a map from supplied XML"
