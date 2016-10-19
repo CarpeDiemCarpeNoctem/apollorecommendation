@@ -15,6 +15,7 @@
   (filter #(not (<= (second %) 0)) (get-similarities ratings user formula)))
 
 (defn weighted-ratings
+  "Returns weighted book ratings (for books the user hasn't read) based on similarity of each friend to user"
   [ratings scores user]
   (reduce 
    (fn [collection simil-scores]
