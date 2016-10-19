@@ -3,6 +3,13 @@
 (use 'criterium.core)
 (set! *warn-on-reflection* true)
 
+; - - - - - - - - - -
+; The formulas namespace contains mathematical formulas used for similarity
+; calculations between two users. Each function takes the user's id and one
+; of it's friend's ids to calculate a similarity score between each of those
+; two people based on which a book will be recommended for the user to read.
+; - - - - - - - - - -
+
 (defn euclid
   "The Euclidean distance between points p and q is the length of the line segment connecting them."
   [user friend]
