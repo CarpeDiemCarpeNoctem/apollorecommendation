@@ -27,6 +27,9 @@
   (fact "when nil is present in collection it processes only non nil elements of the original collection"
     (asynchronized inc [nil 3 4 nil 8 nil nil 9]) => '(4 5 9 10)))
 
+; get-friends-xml goes through integration testing in live environment as, due to its nature,
+; it relies on I/O operation external to the system.
+
 (facts "ns:ratings 'parse-xml'"
   (fact "Returns a map from supplied XML"
     (parse-xml "<hello>world</hello>") => {:tag :hello, :attrs nil, :content ["world"]}))
@@ -48,6 +51,11 @@
  
  (fact "Returns empty list if no collection is supplied"
     (make-keyword-list nil) => '()))
+
+; create-ratings, vector-of-extended-friends, lits-user-and-extended-friends, users-book-ratings,
+; user-book-reviews and book-ratings go through integration testing in live environment as,
+; due to their nature, they rely on I/O operations external to the system.
+; - - - - - - - - - -
 
 ; Recommendation Tests:
 ; - - - - - - - - - -
@@ -79,9 +87,16 @@
   (fact "Returns empty list if supplied collection is empty"
     (get-highest-rated-book {}) => nil))
 
+; recommended-book-xml goes through integration testing in live environment as, due to its nature,
+; it relies on I/O operation external to the system. Only nil input value is unit tested.
+
 (facts "ns:recommendations 'recommended-book-xml'"
   (fact "Returns nil if no book is supplied"
     (get-highest-rated-book nil) => nil))
+
+; parse-book-xml and recommended-book-info go through integration testing in live environment as,
+; due to their nature, they rely on I/O operations external to the system. Only nil input value is
+; unit tested.
 
 (facts "ns:recommendations 'parse-book-xml'"
   (fact "Returns nil if no input is supplied"
