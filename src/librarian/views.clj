@@ -2,7 +2,7 @@
   (:require [hiccup.page :as hic-p]
             [librarian.ratings :as ratings]
             [librarian.recommendation :as recommendation]
-            [librarian.formulas :as formulas]))
+            [librarian.configuration :as config]))
 
 (defn gen-page-head
   [title]
@@ -31,7 +31,7 @@
 
 (defn recommendation-page
   [{:keys [goodreadsid enhance]}]
-  (let [math-formula formulas/euclid
+  (let [math-formula config/formula
         ratings (if (= "yes" enhance)
                     (-> (ratings/get-friends-xml (str goodreadsid))
                       ratings/parse-xml
