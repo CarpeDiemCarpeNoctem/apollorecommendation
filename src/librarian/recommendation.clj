@@ -25,6 +25,7 @@
        (assoc collection friend-id weighted-pref))) {} scores))
 
 (defn sum-weighted-ratings
+  "Returns a sum of all weighted book ratings"
   [weighted-ratings]
   (reduce (fn [collection wratings] (merge-with #(+ %1 %2) collection wratings)) {} (vals weighted-ratings)))
 
