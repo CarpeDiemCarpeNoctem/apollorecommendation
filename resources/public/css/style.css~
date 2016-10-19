@@ -107,6 +107,11 @@ h1 {
   transition: box-shadow 0.3s, border 0.3s;
 }
 
+.style-1 :valid {
+  background:hsl(120, 50%, 90%);
+  box-shadow: 0 0 5px 1px green;
+}
+
 #searchbutton {
     text-align: center;
 }
