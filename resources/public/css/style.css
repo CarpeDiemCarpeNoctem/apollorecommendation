@@ -74,6 +74,12 @@ h1 {
     padding-bottom: 2%;
 }
 
+#search input[type="text"] {
+    width: 30%;
+    height: 30px;
+    font-size: 2em;
+}
+
 #enhanced {
     text-align: center;
     font-size: 1.1em;
