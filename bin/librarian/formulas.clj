@@ -73,6 +73,8 @@
         )))
 
 (defn jaccard-index
+  "The Jaccard coefficient measures similarity between finite sample sets,
+   and is defined as the size of the intersection divided by the size of the union of the sample sets."
   [user friend]
   (let [first-person (reduce #(into %1 %2) #{} user)
         second-person (reduce #(into %1 %2) #{} friend)]
