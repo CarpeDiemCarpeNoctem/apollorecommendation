@@ -13,6 +13,10 @@
         (/ (int 1) (+ distance (int 1)))))))
 
 (defn pearson
+  "Pearson correlation measures the similarity in shape between two profiles.
+   The formula for the Pearson Correlation distance is:
+   d = 1 - r where r = Z(x)·Z(y)/n is the dot product of the z-scores of the vectors x and y.
+   The z-score of x is constructed by subtracting from x its mean and dividing by its standard deviation."
   [user friend]
   (let [books-both-read (filter user (keys friend))] 
     (if (empty? books-both-read)
