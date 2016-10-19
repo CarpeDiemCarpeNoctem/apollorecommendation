@@ -6,6 +6,7 @@
 (set! *warn-on-reflection* true)
 
 (defn get-similarities
+  "Returns a list of similarity scores between the user and each of their friends"
   [ratings user formula]
   (let [list-without-user (dissoc ratings user)]
       (reduce #(assoc %1 (key %2) (formula (ratings user) (val %2))) {} list-without-user)))
