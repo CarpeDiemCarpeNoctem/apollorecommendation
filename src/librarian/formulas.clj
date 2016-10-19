@@ -4,6 +4,7 @@
 (set! *warn-on-reflection* true)
 
 (defn euclid
+  "The Euclidean distance between points p and q is the length of the line segment connecting them."
   [user friend]
   (let [books-both-read (filter user (keys friend))]
     (if (empty? books-both-read)
