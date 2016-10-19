@@ -30,6 +30,8 @@
    [:div {:id "quote"}
     "“I find television very educating. Every time somebody turns on the set, I go into the other room and read a book.” - Groucho Marx"]
    [:form {:action "/recommendation" :method "POST"}
+    [:div {:id "explanation"}
+     "Please enter your Goodreads ID:"]
     [:div {:id "search"}
      [:input {:id "searchfield" :type "text" :name "goodreadsid"}]]
     [:div {:id "enhanced"}
