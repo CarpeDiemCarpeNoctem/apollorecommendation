@@ -56,8 +56,8 @@
   [user friend]
   (let [books-both-read (filter user (keys friend))] 
     (if (empty? books-both-read)
-      0
-      (let [vector-list (reduce #(conj %1 (Math/abs (- (user %2) (friend %2)))) [] books-both-read)]
+      (int 0)
+      (let [vector-list (reduce #(conj %1 (Math/abs (- (int (user %2)) (int (friend %2))))) [] books-both-read)]
         (apply max vector-list))
         )))
 
