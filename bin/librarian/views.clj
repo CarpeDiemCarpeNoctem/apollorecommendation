@@ -40,8 +40,9 @@
 
 (defn recommendation-page
   [{:keys [goodreadsid enhance]}]
-  (let [math-formula config/formula
-        ratings (if (= "yes" enhance)
+  (try
+    (let [math-formula config/formula
+          ratings (if (= "yes" enhance)
                     (-> (ratings/get-friends-xml (str goodreadsid))
                       ratings/parse-xml
                       ratings/get-friends
@@ -53,17 +54,24 @@
                       ratings/list-friends
                       (#(conj % (str goodreadsid)))
                       ratings/create-ratings))
-        result (-> (recommendation/recommend-books ratings (keyword goodreadsid) math-formula)
-                 recommendation/sort-by-value 
-                 recommendation/get-highest-rated-book 
-                 recommendation/recommended-book-xml
-                 recommendation/parse-book-xml
-                 recommendation/recommended-book-info)]
-  (hic-p/html5
-    (gen-page-head "Recommendation")
-    header-links
-    [:h1 "Here's your recommended book:"]
-    [:p {:class "description-title"} (format (str (:title result)))]
-    [:p {:class "description"} (format (str (:description result)))]
-    [:p {:class "description"} (hic-e/link-to (format (str (:alink result))) "More details")]
-    )))
+          result (-> (recommendation/recommend-books ratings (keyword goodreadsid) math-formula)
+                   recommendation/sort-by-value 
+                   recommendation/get-highest-rated-book 
+                   recommendation/recommended-book-xml 
+                   recommendation/parse-book-xml
+                   recommendation/recommended-book-info)]
+    (hic-p/html5
+      (gen-page-head "Recommendation")
+      header-links
+      [:h1 "Here's your recommended book:"]
+      [:p {:class "description-title"} (format (str (:title result)))]
+      [:p {:class "description"} (format (str (:description result)))]
+      [:p {:class "description"} (hic-e/link-to (format (str (:alink result))) "More details")]
+      ))
+   (catch Exception e
+     (hic-p/html5
+       (gen-page-head "Recommendation")
+       header-links
+       [:h1 "Oops, something went wrong"]
+       [:p {:class "description"} "There was an error with your request. Please make sure you are using a valid Goodreads id."]
+       [:p {:class "description"} (hic-e/link-to "http://www.goodreads.com" "Create a Goodreads ID or log in")]))))
