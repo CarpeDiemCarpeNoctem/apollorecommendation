@@ -39,6 +39,19 @@ h1 {
     padding-bottom: 2%;
 }
 
+.description-title {
+  font-weight: bold;
+  font-size: 1.5em;
+  text-align: center;
+  padding-top: 5%;
+  padding-bottom: 2%;
+}
+
+.description {
+  text-align: center;
+  padding-bottom: 2%;
+}
+
 #searchbutton {
     text-align: center;
 }

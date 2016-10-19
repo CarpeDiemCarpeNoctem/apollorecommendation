@@ -54,7 +54,7 @@
   (hic-p/html5
     (gen-page-head "Recommendation")
     [:h1 "Here's your recommended book:"]
-    [:p (format (str (:title result)))]
+    [:p {:class "description-title"} (format (str (:title result)))]
     [:p {:class "description"} (format (str (:description result)))]
-    [:p (hic-e/link-to (format (str (:alink result))) "More details")]
+    [:p {:class "description"} (hic-e/link-to (format (str (:alink result))) "More details")]
     )))
