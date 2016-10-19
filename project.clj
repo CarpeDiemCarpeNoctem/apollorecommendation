@@ -8,6 +8,7 @@
                  [compojure "1.3.1"]
                  [ring/ring-defaults "0.1.2"]
                  [org.clojure/clojurescript "0.0-3190"]
+                 [org.clojure/core.async "0.1.346.0-17112a-alpha"]
                  [reagent "0.5.1"]
                  [criterium "0.4.3"]]
   :plugins [[lein-ring "0.9.7"]
