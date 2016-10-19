@@ -15,6 +15,11 @@
    (hic-p/include-css "/css/style.css")
    ])
 
+(def header-links
+  [:div#header-links
+   [:a {:href "/"} "Recommend again"]
+   ])
+
 (defn home-page
   []
   (hic-p/html5
@@ -56,6 +61,7 @@
                  recommendation/recommended-book-info)]
   (hic-p/html5
     (gen-page-head "Recommendation")
+    header-links
     [:h1 "Here's your recommended book:"]
     [:p {:class "description-title"} (format (str (:title result)))]
     [:p {:class "description"} (format (str (:description result)))]
