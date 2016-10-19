@@ -74,8 +74,8 @@
   [user friend]
   (let [first-person (reduce #(into %1 %2) #{} user)
         second-person (reduce #(into %1 %2) #{} friend)
-        n-first-person (count first-person)
-        n-second-person (count second-person)]
+        n-first-person (int (count first-person))
+        n-second-person (int (count second-person))]
     (if (= n-first-person n-second-person)
-      0
-      (/ (* 2 (count (clojure.set/intersection first-person second-person))) (+ n-first-person n-second-person)))))
+      (int 0)
+      (/ (* (int 2) (int (count (clojure.set/intersection first-person second-person)))) (+ n-first-person n-second-person)))))
