@@ -22,7 +22,10 @@
     (asynchronized inc nil) => '())
   
   (fact "when only nil is present in collection it returns an empty list"
-    (asynchronized inc [nil]) => '()))
+    (asynchronized inc [nil]) => '())
+  
+  (fact "when nil is present in collection it processes only non nil elements of the original collection"
+    (asynchronized inc [nil 3 4 nil 8 nil nil 9]) => '(4 5 9 10)))
 
 (facts "ns:ratings 'parse-xml'"
   (fact "Returns a map from supplied XML"
