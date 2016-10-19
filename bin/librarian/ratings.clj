@@ -23,7 +23,7 @@
     nil))
 
 (defn parse-xml
-  [s]
+  [^String s]
   (clojure.xml/parse (java.io.ByteArrayInputStream. (.getBytes s))))
 
 (defn get-friends
