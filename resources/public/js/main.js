@@ -33352,14 +33352,19 @@ goog.provide("librarian.core");
 goog.require("cljs.core");
 goog.require("goog.dom");
 goog.require("goog.events");
-librarian.core.loader = function librarian$core$loader() {
+librarian.core.validation_loader = function librarian$core$validation_loader() {
   var image = cljs.core.atom.call(null, "\x3cimg src\x3d'images/spinner.gif'\x3e");
+  var warning = cljs.core.atom.call(null, "Please check your input");
   var button = goog.dom.getElement("recommendbutton");
   var display = goog.dom.getElement("load");
-  return goog.events.listen(button, "click", function(image, button, display) {
+  return goog.events.listen(button, "click", function(image, warning, button, display) {
     return function(event) {
-      return display.innerHTML = cljs.core.deref.call(null, image);
+      if (cljs.core.truth_(goog.dom.getElement("searchfield").checkValidity())) {
+        return display.innerHTML = cljs.core.deref.call(null, image);
+      } else {
+        return display.innerHTML = cljs.core.deref.call(null, warning);
+      }
     };
-  }(image, button, display));
+  }(image, warning, button, display));
 };
-librarian.core.loader.call(null);
+librarian.core.validation_loader.call(null);
