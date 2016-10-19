@@ -13,7 +13,10 @@
 
 (facts "ns:ratings 'asynchronized'"
   (fact "returns a processed list from a given function and collection"
-    (asynchronized inc [1 2 3 4 5]) => '(2 3 4 5 6)))
+    (asynchronized inc [1 2 3 4 5]) => '(2 3 4 5 6))
+  
+  (fact "when collection is empty it returns an empty list"
+    (asynchronized inc []) => '()))
 
 (facts "ns:ratings 'parse-xml'"
   (fact "Returns a map from supplied XML"
