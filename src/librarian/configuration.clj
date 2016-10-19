@@ -1,6 +1,14 @@
 (ns librarian.configuration
   (:require [librarian.formulas :as formulas]))
 
+; - - - - - - - - - -
+; The configuration namespace contains configuration settings for the application.
+; It is composed of three major sections:
+; Goodreads Configuration, OAuth Configuration and Formula Configuration
+; Each of them has its own sub-configuration sections for configuring specific aspects
+; of each of the three major sections.
+; - - - - - - - - - -
+
 ; Goodreads Configuration
 ; - - - - - - - - - -
 
