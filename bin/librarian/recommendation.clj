@@ -12,6 +12,9 @@
 ; scores between the user and each of their friends.
 ; - - - - - - - - - -
 
+; The following 5 functions are helper functions used by recommend-books:
+; - get-similarities, similarity-scores, weighted-ratings, sum-weighted-ratings, sum-similarity-scores
+
 (defn get-similarities
   "Returns a list of similarity scores between the user and each of their friends"
   [ratings user formula]
@@ -47,6 +50,8 @@
                   rated-users (reduce #(if (contains? (val %2) book) (conj %1 (key %2)) %1) [] weighted-pref)
                   similarities (reduce + (map #(sim-users %) rated-users))]
               (assoc collection book similarities))) {} book-wprefs))
+
+; - - - - - - - - - -
 
 (defn recommend-books
   "Returns a map of book ids recommended for the user to read"
