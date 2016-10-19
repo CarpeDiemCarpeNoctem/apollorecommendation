@@ -75,11 +75,11 @@
   "Returns a list of vectors of book ids and ratings"
   [url]
   (let [reviews (extract-tag :reviews (:content (clojure.xml/parse url)))]
-    (into {} (map (fn [review]
-                    (let [book-review (:content review)
-                          book-id (first (extract-tag :id (extract-tag :book book-review)))
-                          book-rating (int (. Integer parseInt (first (extract-tag :rating book-review))))]
-                      [(keyword book-id) book-rating]))
+    (into {} (asynchronized (fn [review]
+                              (let [book-review (:content review)
+                                    book-id (first (extract-tag :id (extract-tag :book book-review)))
+                                    book-rating (int (. Integer parseInt (first (extract-tag :rating book-review))))]
+                                [(keyword book-id) book-rating]))
                   reviews))))
 
 ; make-keyword-list is a helper function used by create-ratings
