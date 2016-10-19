@@ -4,6 +4,8 @@
             [librarian.configuration :as config]
             ))
 
+(use 'criterium.core)
+
 (defn get-friends-xml
   "Establishes a connection with the API through OAuth and gets a list of user's friends"
   [id]

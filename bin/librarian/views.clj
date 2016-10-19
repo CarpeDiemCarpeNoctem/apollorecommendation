@@ -5,6 +5,8 @@
             [librarian.recommendation :as recommendation]
             [librarian.configuration :as config]))
 
+(use 'criterium.core)
+
 (defn gen-page-head
   [title]
   [:head

@@ -2,6 +2,8 @@
   (:require [librarian.ratings :as ratings]
             [librarian.configuration :as config]))
 
+(use 'criterium.core)
+
 (defn get-similarities
   [ratings user formula]
   (let [list-without-user (dissoc ratings user)]

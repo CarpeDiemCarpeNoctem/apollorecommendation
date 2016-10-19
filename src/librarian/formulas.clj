@@ -1,5 +1,7 @@
 (ns librarian.formulas)
 
+(use 'criterium.core)
+
 (defn euclid
   [p1 p2]
   (let [si (filter p1 (keys p2))]
