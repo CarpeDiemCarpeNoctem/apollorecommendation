@@ -111,9 +111,13 @@
 (facts "ns:recommendations 'recommended-book-info'"
   (fact "Returns nil if no input is supplied"
     (recommended-book-info nil) => {:alink "http://www.goodreads.com", :description "You need to have friends on Goodreads and some books rated. Also please make sure you allow the application to access your profile.", :title "Sorry no recommendation"}))
+; - - - - - - - - - -
 
 ; Formulas Tests:
 ; - - - - - - - - - -
+
+; All mathematical formulas tests are conducted when there are two identical maps, when there is
+; partial matching, when there are no ratings in one of the maps and when both maps are empty.
 
 (facts "ns:formulas 'euclid'"
   (fact "Returns Euclidean distance score"
