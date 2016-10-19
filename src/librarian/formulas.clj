@@ -4,12 +4,12 @@
 (set! *warn-on-reflection* true)
 
 (defn euclid
-  [p1 p2]
-  (let [si (filter p1 (keys p2))]
-    (if (empty? si)
+  [user friend]
+  (let [books-both-read (filter user (keys friend))]
+    (if (empty? books-both-read)
       (int 0)
-      (let [squares-sum (float (reduce #(+ %1 (float (Math/pow (- (int (p1 %2)) (int (p2 %2))) (int 2)))) (int 0) si))]
-        (/ (int 1) (+ squares-sum (int 1)))))))
+      (let [distance (float (reduce #(+ %1 (float (Math/pow (- (int (user %2)) (int (friend %2))) (int 2)))) (int 0) books-both-read))]
+        (/ (int 1) (+ distance (int 1)))))))
 
 (defn pearson
   [user friend]
