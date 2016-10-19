@@ -121,3 +121,7 @@ h1 {
 #searchbutton {
     text-align: center;
 }
+
+#recommendbutton {
+    font-size: 1.5em;
+}
