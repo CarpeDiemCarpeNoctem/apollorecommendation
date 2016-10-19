@@ -8,6 +8,12 @@
 (use 'criterium.core)
 (set! *warn-on-reflection* true)
 
+; - - - - - - - - - -
+; The midje-test namespace is used to do unit testing using Midje unit testing framework.
+; Sets of functions from three namespaces are unit-tested: Ratings Tests, Recommendation
+; Tests and Formulas Tests. The test-data namespace is used to help unit test certain functions.
+; - - - - - - - - - -
+
 ; Ratings Tests:
 ; - - - - - - - - - -
 
@@ -43,13 +49,13 @@
     (list-friends sample-get-friends) => '("11111111" "22222222")))
 
 (facts "ns:ratings 'make-keyword-list'"
- (fact "Returns list of keywords from the collection of elements supplied"
-   (make-keyword-list '("11111111" "22222222" "33333333" "44444444" "55555555")) => '(:11111111 :22222222 :33333333 :44444444 :55555555))
+  (fact "Returns list of keywords from the collection of elements supplied"
+    (make-keyword-list '("11111111" "22222222" "33333333" "44444444" "55555555")) => '(:11111111 :22222222 :33333333 :44444444 :55555555))
  
- (fact "Returns empty list if supplied collection is empty"
+  (fact "Returns empty list if supplied collection is empty"
     (make-keyword-list '()) => '())
  
- (fact "Returns empty list if no collection is supplied"
+  (fact "Returns empty list if no collection is supplied"
     (make-keyword-list nil) => '()))
 
 ; create-ratings, vector-of-extended-friends, lits-user-and-extended-friends, users-book-ratings,
@@ -61,10 +67,10 @@
 ; - - - - - - - - - -
 
 (facts "ns:recommendations 'recommend-books'"
- (fact "Returns map of key-value pairs of book ids and their ratings"
-   (recommend-books {:11111111 {:123 3 :234 5 :345 4} :22222222 {:123 4 :345 5 :456 2 :567 3.0, :678 5.0}} :11111111 euclid) => {:456 2.0, :567 3.0, :678 5.0})
+  (fact "Returns map of key-value pairs of book ids and their ratings"
+    (recommend-books {:11111111 {:123 3 :234 5 :345 4} :22222222 {:123 4 :345 5 :456 2 :567 3.0, :678 5.0}} :11111111 euclid) => {:456 2.0, :567 3.0, :678 5.0})
  
- (fact "Returns empty list if supplied collection is empty"
+  (fact "Returns empty list if supplied collection is empty"
     (recommend-books {} :11111111 euclid) => {}))
 
 (facts "ns:recommendations 'sort-by-value'"
