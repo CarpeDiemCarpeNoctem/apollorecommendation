@@ -38,6 +38,8 @@
           (float (/ covariance standard-deviation)))))))
 
 (defn manhattan-distance
+  "The distance between two points measured along axes at right angles.
+   In a plane with p1 at (x1, y1) and p2 at (x2, y2), it is |x1 - x2| + |y1 - y2|."
   [user friend]
   (let [books-both-read (filter user (keys friend))] 
     (if (empty? books-both-read)
