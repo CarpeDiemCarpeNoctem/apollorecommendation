@@ -49,7 +49,9 @@
 
 (defn vector-of-extended-friends
   [friends-list]
-  (flatten (for [user friends-list] (list-friends (get-friends (parse-xml (get-friends-xml (str user))))))))
+  (flatten (asynchronized #(-> (parse-xml (get-friends-xml (str %)))
+                            get-friends
+                            list-friends) friends-list)))
 
 (defn list-user-and-extended-friends
   [friends-vec]
