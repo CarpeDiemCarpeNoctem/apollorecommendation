@@ -56,4 +56,5 @@
     [:h1 "Recommendation:"]
     [:p (format (str (:title result)))]
     [:p (format (str (:description result)))]
+    [:p (hic-e/link-to (format (str (:alink result))) "More details")]
     )))
