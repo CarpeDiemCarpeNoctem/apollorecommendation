@@ -33,7 +33,7 @@
     [:div {:id "explanation"}
      "Please enter your Goodreads ID:"]
     [:div {:id "search"}
-     [:input {:id "searchfield" :type "text" :name "goodreadsid" :autofocus true :maxlength "8"}]]
+     [:input {:id "searchfield" :type "text" :name "goodreadsid" :autofocus true :maxlength "8" :placeholder "Goodreads ID"}]]
     [:div {:id "enhanced"}
      [:label {:for "enhance-algorithm"} "Use enhanced algorithm: "] [:input {:type "checkbox", :name "enhance", :id "enhance-algorithm", :value "yes", :checked false}]]
     [:div {:id "searchbutton"}
