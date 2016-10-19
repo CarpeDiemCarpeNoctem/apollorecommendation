@@ -8,6 +8,7 @@
 (set! *warn-on-reflection* true)
 
 (defn asynchronized
+  "Asynchronously processes elements of a collection through a given function"
   [function coll]
   (if (nil? coll)
     '()
