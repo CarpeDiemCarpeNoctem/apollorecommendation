@@ -7,6 +7,11 @@ body {
     padding-right: 5%;
 }
 
+a:link {
+    color: white;
+    text-decoration: none;
+}
+
 #header-links {
     background-color: black;
     padding: 10px;
