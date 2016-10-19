@@ -70,7 +70,7 @@
 
 (facts "ns:recommendations 'recommended-book-info'"
   (fact "Returns nil if no input is supplied"
-    (recommended-book-info nil) => {:alink "http://www.goodreads.com", :description "You need to have friends and some books rated. Also make sure you allow application access to your profile.", :title "No recommendation"}))
+    (recommended-book-info nil) => {:alink "http://www.goodreads.com", :description "You need to have friends on Goodreads and some books rated. Also please make sure you allow the application to access your profile.", :title "Sorry no recommendation"}))
 
 ; Formulas Tests:
 ; - - - - - - - - - -

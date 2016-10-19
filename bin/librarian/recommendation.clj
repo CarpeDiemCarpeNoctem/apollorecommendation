@@ -70,8 +70,8 @@
   "Returns the recommended book title, description and link"
   [parsed-book]
   (if (nil? parsed-book)
-    (let [title "No recommendation"
-         description "You need to have friends and some books rated. Also make sure you allow application access to your profile."
+    (let [title "Sorry no recommendation"
+         description "You need to have friends on Goodreads and some books rated. Also please make sure you allow the application to access your profile."
          link "http://www.goodreads.com"]
       (zipmap [:title :description :alink] [title description link]))
     (let [title (first (ratings/extract-tag :title parsed-book))
