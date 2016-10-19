@@ -11,6 +11,7 @@
       (reduce #(assoc %1 (key %2) (formula (ratings user) (val %2))) {} list-without-user)))
 
 (defn similarity-scores
+  "Returns a list of similarity scores for each friend a user has and filters out 0 or lower scores"
   [ratings user formula]
   (filter #(not (<= (second %) 0)) (get-similarities ratings user formula)))
 
