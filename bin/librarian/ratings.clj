@@ -23,8 +23,10 @@
     nil))
 
 (defn parse-xml
+  "Parses XML string"
   [^String s]
-  (clojure.xml/parse (java.io.ByteArrayInputStream. (.getBytes s))))
+  (clojure.xml/parse
+    (java.io.ByteArrayInputStream. (.getBytes s))))
 
 (defn get-friends
   "Returns a vector of maps with information of all friends"
