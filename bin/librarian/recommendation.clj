@@ -45,6 +45,7 @@
     (zipmap (keys sum-wratings) (map #(/ (second %) (sum-sim-scores (first %))) sum-wratings))))
 
 (defn sort-by-value
+  "Sorts a given collection of key-value pairs by its value in descending order"
   [coll]
   (into (sorted-map-by (fn [key1 key2]
                          (compare [(get coll key2) key2]
