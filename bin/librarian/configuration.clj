@@ -32,6 +32,11 @@
 ; Formula Configuration:
 ; - - - - - - - - - -
 
+;  - Similarity rating calculation formula:
+;    - Choose from the following list of mathematical formulas:
+;    -- Uncoment the one that you would like to use and comment
+;    -- out all the other ones.
+
 (def formula 
   formulas/euclid
   ;formulas/pearson
