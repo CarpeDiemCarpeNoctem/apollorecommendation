@@ -11,6 +11,10 @@
 ; Ratings Tests:
 ; - - - - - - - - - -
 
+(facts "ns:ratings 'asynchronized'"
+  (fact "returns a processed list from a given function and collection"
+    (asynchronized inc [1 2 3 4 5]) => '(2 3 4 5 6)))
+
 (facts "ns:ratings 'parse-xml'"
   (fact "Returns a map from supplied XML"
     (parse-xml "<hello>world</hello>") => {:tag :hello, :attrs nil, :content ["world"]}))
