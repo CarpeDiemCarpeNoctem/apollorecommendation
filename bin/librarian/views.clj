@@ -30,14 +30,20 @@
 
 
 (defn recommendation-page
-  [{:keys [goodreadsid]}]
+  [{:keys [goodreadsid enhance]}]
   (let [math-formula formulas/euclid
-        ratings (-> (ratings/get-friends-xml (str goodreadsid))
-               ratings/parse-xml
-               ratings/get-friends
-               ratings/list-friends
-               (#(conj % (str goodreadsid)))
-               ratings/create-ratings)
+        ratings (if (= "yes" enhance)
+                    (-> (ratings/get-friends-xml (str goodreadsid))
+                      ratings/parse-xml
+                      ratings/get-friends
+                      ratings/list-user-and-extended-friends
+                      ratings/create-ratings)
+                    (-> (ratings/get-friends-xml (str goodreadsid))
+                      ratings/parse-xml
+                      ratings/get-friends
+                      ratings/list-friends
+                      (#(conj % (str goodreadsid)))
+                      ratings/create-ratings))
         result (-> (recommendation/recommend-books ratings (keyword goodreadsid) math-formula)
                  recommendation/sort-by-value 
                  recommendation/get-highest-rated-book 
