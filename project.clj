@@ -1,6 +1,6 @@
 (defproject librarian "0.1.0-SNAPSHOT"
   :description "Book recommendation application"
-  :url "http://example.com/FIXME"
+  :url "TBA"
   :min-lein-version "2.0.0"
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [clj-oauth "1.5.2"]
@@ -8,7 +8,8 @@
                  [compojure "1.3.1"]
                  [ring/ring-defaults "0.1.2"]
                  [org.clojure/clojurescript "0.0-3190"]
-                 [reagent "0.5.1"]]
+                 [reagent "0.5.1"]
+                 [criterium "0.4.3"]]
   :plugins [[lein-ring "0.9.7"]
             [lein-cljsbuild "1.1.0"]
             [lein-midje "3.2-RC4"]]
@@ -24,4 +25,5 @@
   {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
                         [ring-mock "0.1.5"]
                         [hiccup "1.0.2"]
-                        [midje "1.7.0"]]}})
+                        [midje "1.7.0"]
+                        ]}})
