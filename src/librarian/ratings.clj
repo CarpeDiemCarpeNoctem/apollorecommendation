@@ -48,6 +48,7 @@
 ; -- vector-of-extended-friends is a helper function used in list-user-and-extended-friends
 
 (defn vector-of-extended-friends
+  "Returns a list of vectors with friends ids and their friends ids in them"
   [friends-list]
   (flatten (asynchronized #(-> (parse-xml (get-friends-xml (str %)))
                             get-friends
