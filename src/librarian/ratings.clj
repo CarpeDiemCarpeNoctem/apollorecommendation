@@ -9,11 +9,13 @@
 
 (defn asynchronized
   [function coll]
-  (let [elements (filter #(not (nil? %)) coll)
-        channels (repeatedly (count elements) chan)]
-    (doseq [[channel element] (map vector channels elements)]
-      (go (>! channel (function element))))
-    (map <!! channels)))
+  (if (nil? coll)
+    '()
+    (let [elements (filter #(not (nil? %)) coll)
+          channels (repeatedly (count elements) chan)]
+      (doseq [[channel element] (map vector channels elements)]
+        (go (>! channel (function element))))
+      (map <!! channels))))
 
 (defn get-friends-xml
   "Establishes a connection with the API through OAuth and gets a list of user's friends"
