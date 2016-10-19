@@ -84,6 +84,7 @@
               (int (count (clojure.set/union first-person second-person)))))))
 
 (defn sorensen-dice
+  "The Sorensen-dice coefficient is a statistic used for comparing the similarity of two samples."
   [user friend]
   (let [first-person (reduce #(into %1 %2) #{} user)
         second-person (reduce #(into %1 %2) #{} friend)
