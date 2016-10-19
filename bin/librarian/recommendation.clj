@@ -37,6 +37,7 @@
               (assoc collection book similarities))) {} book-wprefs))
 
 (defn recommend-books
+  "Returns a map of book ids recommended for the user to read"
   [ratings user formula]
   (let [similar-friends (into {} (similarity-scores ratings user formula))
         weighted-rs (weighted-ratings ratings similar-friends user)
