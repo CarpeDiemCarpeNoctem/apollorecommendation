@@ -5,6 +5,7 @@
             [clojure.core.async :refer [>! <!! go chan]]))
 
 (use 'criterium.core)
+(set! *warn-on-reflection* true)
 
 (defn asynchronized
   [function coll]

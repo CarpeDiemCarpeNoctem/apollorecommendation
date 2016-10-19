@@ -3,6 +3,8 @@
             [librarian.configuration :as config]
             [clj-http.client :as http]))
 
+(set! *warn-on-reflection* true)
+
 (def consumer (oauth/make-consumer config/consumer-key
                                    config/consumer-secret
                                    "https://www.goodreads.com/oauth/request_token"

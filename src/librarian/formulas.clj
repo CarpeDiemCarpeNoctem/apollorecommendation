@@ -1,6 +1,7 @@
 (ns librarian.formulas)
 
 (use 'criterium.core)
+(set! *warn-on-reflection* true)
 
 (defn euclid
   [p1 p2]

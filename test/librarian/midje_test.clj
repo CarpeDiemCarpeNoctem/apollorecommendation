@@ -5,6 +5,9 @@
             [librarian.recommendation :refer :all]
             [librarian.formulas :refer :all]))
 
+(use 'criterium.core)
+(set! *warn-on-reflection* true)
+
 ; Ratings Tests:
 ; - - - - - - - - - -
 

@@ -6,6 +6,7 @@
             [librarian.configuration :as config]))
 
 (use 'criterium.core)
+(set! *warn-on-reflection* true)
 
 (defn gen-page-head
   [title]

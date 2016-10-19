@@ -3,6 +3,7 @@
             [librarian.configuration :as config]))
 
 (use 'criterium.core)
+(set! *warn-on-reflection* true)
 
 (defn get-similarities
   [ratings user formula]
