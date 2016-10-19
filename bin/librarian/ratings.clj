@@ -7,6 +7,13 @@
 (use 'criterium.core)
 (set! *warn-on-reflection* true)
 
+; - - - - - - - - - -
+; The ratings namespace contains functions that create a map of user ids
+; mapped to maps of book ids and the ratings they gave them.
+; This map is later used to calculate similarity scores between the user and
+; each of their friends and make a book recommendation based on those scores.
+; - - - - - - - - - -
+
 ; asynchronized is a helper function that creates asynchronous computation
 
 (defn asynchronized
