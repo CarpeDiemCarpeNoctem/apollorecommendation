@@ -5,6 +5,12 @@
 
 (set! *warn-on-reflection* true)
 
+; - - - - - - - - - -
+; The oauthcon namespace creates a connection through OAuth with
+; the Goodreads API to return an XML document containing a list
+; of user's friends.
+; - - - - - - - - - -
+
 (def consumer (oauth/make-consumer config/consumer-key
                                    config/consumer-secret
                                    "https://www.goodreads.com/oauth/request_token"
