@@ -7,6 +7,8 @@
 (use 'criterium.core)
 (set! *warn-on-reflection* true)
 
+; asynchronized is a helper function that creates asynchronous computation
+
 (defn asynchronized
   "Asynchronously processes elements of a collection through a given function"
   [function coll]
@@ -18,12 +20,16 @@
         (go (>! channel (function element))))
       (map <!! channels))))
 
+; Entry point for algorithm: get-friends-xml
+
 (defn get-friends-xml
   "Establishes a connection with the API through OAuth and gets a list of user's friends"
   [id]
   (if-let [con (:body (ocon/get-friends id))]
     con
     nil))
+
+; - - - - - - - - - -
 
 (defn parse-xml
   "Parses XML string"
