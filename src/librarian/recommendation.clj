@@ -29,6 +29,7 @@
   (reduce (fn [collection wratings] (merge-with #(+ %1 %2) collection wratings)) {} (vals weighted-ratings)))
 
 (defn sum-similarity-scores
+  "Returns the sum of all similarity scores relating to each book"
   [weighted-pref book-wprefs sim-users]
   (reduce (fn [collection bprefs]
             (let [book (first bprefs)
