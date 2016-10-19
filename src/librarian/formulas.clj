@@ -43,13 +43,13 @@
   [user friend]
   (let [books-both-read (filter user (keys friend))] 
     (if (empty? books-both-read)
-      0
-      (let [distance (reduce #(+ %1 (Math/pow (- (user %2) (friend %2)) 2)) 0 books-both-read)
-            n (count books-both-read)
-            denominator (* n (- (Math/pow n 2) 1))]
-        (if (= denominator 0.0)
-          0
-          (Math/abs (- 1 (/ (* 6 distance) denominator))))
+      (int 0)
+      (let [distance (reduce #(+ %1 (Math/pow (- (int (user %2)) (int (friend %2))) (int 2))) (int 0) books-both-read)
+            n (int (count books-both-read))
+            denominator (* n (- (Math/pow n (int 2)) (int 1)))]
+        (if (= denominator (float 0.0))
+          (int 0)
+          (Math/abs (- (int 1) (/ (* (int 6) distance) denominator))))
         ))))
 
 (defn chebyshev
