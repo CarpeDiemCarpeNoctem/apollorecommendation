@@ -95,7 +95,7 @@
 (defn users-book-ratings
   "Returns maps of key-value pairs of book ids and ratings that each user gave them"
   [list-of-users]
-  (for [user list-of-users] (-> (user-book-reviews user) book-ratings)))
+  (asynchronized #(-> (user-book-reviews %) book-ratings) list-of-users))
 
 (defn create-ratings
   "Creates a map of ratings for each user mapped to maps of their book ids and the ratings they gave each book"
