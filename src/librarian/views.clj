@@ -11,7 +11,7 @@
 (defn gen-page-head
   [title]
   [:head
-   [:title (str "My Librarian: " title)]
+   [:title (str "Apollo book recommendation: " title)]
    (hic-p/include-css "/css/style.css")
    ])
 
@@ -19,9 +19,9 @@
   []
   (hic-p/html5
    (gen-page-head "Ask for a book recommendation")
-   [:h1 {:id "maintitle"} "My Librarian"]
+   [:h1 {:id "maintitle"} "Apollo"]
    [:div {:id "intro"}
-    "Welcome to My Librarian book recommendation service"]
+    "Welcome to Apollo book recommendation service"]
    [:form {:action "/recommendation" :method "POST"}
     [:div {:id "search"}
      [:input {:id "searchfield" :type "text" :name "goodreadsid"}]]
