@@ -33,14 +33,13 @@
     [:div {:id "explanation"}
      "Please enter your Goodreads ID:"]
     [:div {:id "search" :class "style-1"}
-     [:input {:id "searchfield" :type "text" :name "goodreadsid" :autofocus true :maxlength "8" :placeholder "Goodreads ID" :required true  :pattern "[0-9]{3,8}" :title "Goodreads ID number"}]]
+     [:input {:id "searchfield" :type "text" :name "goodreadsid" :autofocus true :maxlength "8" :placeholder "Goodreads ID" :required true :pattern "[0-9]{3,8}" :title "Goodreads ID number"}]]
     [:div {:id "enhanced"}
      [:label {:for "enhance-algorithm"} "Use enhanced algorithm: "] [:input {:type "checkbox", :name "enhance", :id "enhance-algorithm", :value "yes", :checked false}]]
     [:div {:id "searchbutton"}
      [:input {:id "recommendbutton" :type "submit" :value "Recommend a book"}]]]
    [:div {:id "load"}]
    (hic-p/include-js "/js/main.js")))
-
 
 (defn recommendation-page
   [{:keys [goodreadsid enhance]}]
