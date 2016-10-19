@@ -55,6 +55,7 @@
                             list-friends) friends-list)))
 
 (defn list-user-and-extended-friends
+  "Returns a list with user, user's friends and friends of user's friends"
   [friends-vec]
   (let [first-degree-friends (list-friends friends-vec)
         extended-friends (vector-of-extended-friends first-degree-friends)]
