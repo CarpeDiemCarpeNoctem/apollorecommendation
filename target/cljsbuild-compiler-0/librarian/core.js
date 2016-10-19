@@ -3,6 +3,10 @@ goog.provide('librarian.core');
 goog.require('cljs.core');
 goog.require('goog.dom');
 goog.require('goog.events');
+/**
+ * Checks if the input field on the front-end has valid input and loads a spinner image to show work
+ * in progress. Otherwise it shows a warning message if the input is not valid.
+ */
 librarian.core.validation_loader = (function librarian$core$validation_loader(){
 var image = cljs.core.atom.call(null,"<img src='images/spinner.gif'>");
 var warning = cljs.core.atom.call(null,"Please check your input");
