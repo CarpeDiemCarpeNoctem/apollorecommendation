@@ -1,4 +1,5 @@
-(ns librarian.configuration)
+(ns librarian.configuration
+  (:require [librarian.formulas :as formulas]))
 
 ; Goodreads Configuration
 ; - - - - - - - - - -
@@ -27,3 +28,16 @@
 
 (def oauth-token "your-oauth-token")
 (def oauth-secret "your-oauth-secret")
+
+; Formula Configuration:
+; - - - - - - - - - -
+
+(def formula 
+  formulas/euclid
+  ;formulas/pearson
+  ;formulas/manhattan
+  ;formulas/spearman
+  ;formulas/chebyshev
+  ;formulas/jaccard-index
+  ;formulas/sorensen-dice
+)
